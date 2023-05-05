@@ -13,12 +13,12 @@ internal class MoveWindowCommand : Command
 
     static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
 
-    public MoveWindowCommand() : base("move", "Move a on screen.")
+    public MoveWindowCommand() : base("move", "Move a window on screen.")
     {
         var windowNameArgument = new Argument<string>("window-name", "The name of the window to move");
         Add( windowNameArgument);
 
-        var rectCoordinatesArgument = new Argument<int[]>("rect", "The rectangle to move the window to.");
+        var rectCoordinatesArgument = new Argument<int[]>("rect", "The rectangle to move the window to as 4 integers for x, y, width and height.");
         Add( rectCoordinatesArgument);
 
         this.SetHandler( ( invocationContext ) =>
